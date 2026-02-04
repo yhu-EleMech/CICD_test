@@ -5,13 +5,13 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - id: Checkout
+      - id: checkout
         uses: actions/checkout@v6
-      - id: "Setup node"
+      - id: setup_node
         uses: actions/setup-node@v6
         with:
           node-version: 24
-      - id: "Install bats"
+      - id: install_bats
         run: npm install -g bats
-      - id: "Check bats version"
+      - id: check_bats_version
         run: bats -v

@@ -1,0 +1,18 @@
+run-name: node-js-ci
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v6
+      - id: setup-node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.x'
+      - id: create-app
+        run: npm ci
+      - id: run-build
+        run: npm run build --if-present
+      - id: run-tests
+        run: npm test

@@ -7,11 +7,11 @@ jobs:
     steps:
       - id: Checkout
         uses: actions/checkout@v6
-      - id: Setup node
+      - id: "Setup node"
         uses: actions/setup-node@v6
         with:
           node-version: 24
-      - id: Install bats
+      - id: "Install bats"
         run: npm install -g bats
-      - id: Check bats version
+      - id: "Check bats version"
         run: bats -v

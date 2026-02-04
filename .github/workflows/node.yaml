@@ -8,7 +8,7 @@ jobs:
       contents: read
       # Required to put a comment into the pull-request
       pull-requests: write
-      
+
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v6
@@ -25,3 +25,6 @@ jobs:
       - name: 'Test Coverage Report'
         if: always()
         uses: davelosert/vitest-coverage-report-action@v2
+        with:
+          json-summary-path: ./coverage/coverage-summary.json
+          json-final-path: ./coverage/coverage-final.json

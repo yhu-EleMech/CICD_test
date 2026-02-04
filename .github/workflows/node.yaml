@@ -3,16 +3,25 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      # Required to checkout the code
+      contents: read
+      # Required to put a comment into the pull-request
+      pull-requests: write
+      
     steps:
-      - id: checkout
+      - name: 'Checkout'
         uses: actions/checkout@v6
-      - id: setup-node
+      - name: 'Setup Node.js'
         uses: actions/setup-node@v6
         with:
           node-version: '24.x'
-      - id: create-app
+      - name: 'Install Dependencies'
         run: npm ci
-      - id: run-build
+      - name: 'Run Build'
         run: npm run build --if-present
-      - id: run-tests
+      - name: 'Run Tests'
         run: npm run test:coverage
+      - name: 'Test Coverage Report'
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2

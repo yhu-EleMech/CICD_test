@@ -15,7 +15,7 @@ test('add a positive and a negative number', () => {
 
 test('add two negative numbers', () => {
   expect(add(-2, -3)).toBe(-5);
-  expect(add(-1, -5)).toBe(-4);
+  expect(add(-1, -5)).toBe(-6);
   expect(add(-100, -100)).toBe(-200);
 });
 

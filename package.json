@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest --run",
-    "test:coverage": "vitest --run --coverage --coverage.reporter=json-summary"
+    "test:coverage": "vitest --run --coverage --coverage.reporter=json --coverage.reporter=json-summary"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^4.0.18",
